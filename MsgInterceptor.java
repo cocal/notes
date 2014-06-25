@@ -27,13 +27,13 @@ public class MsgInterceptor extends AbstractPhaseInterceptor<Message>{
 		super(phase);
 	}
 	public MsgInterceptor() {
-		super(Phase.RECEIVE);
+		super(Phase.RECEIVE);  //指定加载拦截器时间
 	}
 	
 	//拦截器消息处理
 	public void handleMessage(Message message) {
-		System.out.println(message.get(message.HTTP_REQUEST_METHOD));
-		 InputStream is = message.getContent(InputStream.class);
+		System.out.println(message.get(message.HTTP_REQUEST_METHOD)); //获取消息传递方式 GET 或者 POST
+		 InputStream is = message.getContent(InputStream.class); //这个方法发是获取post方法的输入数据
 		 try {
 			ByteArrayOutputStream outStream = new ByteArrayOutputStream();
 			byte[] data = new byte[4096];
@@ -42,14 +42,14 @@ public class MsgInterceptor extends AbstractPhaseInterceptor<Message>{
 				outStream.write(data, 0, count);
 
 			data = null;
-			System.out.println(new String(outStream.toByteArray(), "UTF-8"));
+			System.out.println(new String(outStream.toByteArray(), "UTF-8")); //转码
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
          System.out.println(is.toString());
 	}
-	
+	//获取当前requestIP
 	private  String getRemoteIP(HttpServletRequest request) {
 
 		String ip = request.getHeader("x-forwarded-for");
