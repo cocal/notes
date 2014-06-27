@@ -11,10 +11,14 @@ import java.util.regex.Pattern;
  */
 public class JavaRegular {
 	
-	private static void test1(){
+	/**
+	 * 开头字母
+	 */
+	private static void test1(String desStr){
+		System.out.println("Str : " +  desStr);
 		String rex = "[ABC]";
 		Pattern p = Pattern.compile(rex);
-		Matcher m = p.matcher("Acde");
+		Matcher m = p.matcher(desStr);
 		if(m.find()){
 			System.out.println("Done!");
 		}else{
@@ -24,6 +28,9 @@ public class JavaRegular {
 	
 	public static void main(String[] argv){
 		//run
-		JavaRegular.test1();
+		String[] testStr = {"Abka","Jpad"};
+		for(String s : testStr){
+			JavaRegular.test1(s);
+		}
 	}
 }
