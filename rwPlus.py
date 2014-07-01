@@ -67,7 +67,7 @@ def testplus(str):
 
 
 if __name__ == '__main__':
-#     testplus('(/ 1 2 (+ 1 3))')
-    testplus('( + 1 9 8 (* 1 2 3) ( / 2 4 (+ 1 3))')
+    testplus('(* 0 3)')
+#     testplus('( + 1 9 8 (* 1 2 3) ( / 2 4 (+ 1 3))')
 #     print 4/float(8)
     print 'done'
