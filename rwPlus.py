@@ -9,7 +9,8 @@ import re
 
 ##前缀表达式
 def testplus(str):
-    r1 = re.compile('[0-9]+')
+    r1 = re.compile('[0-9]+') #判断是否为数字
+    r2 = re.compile('(\+|\*)') #判断是否为属性符号
     str1 = []; #操作符队列
     str2 = []; #数值队列
     currentOpt = '='
@@ -19,17 +20,14 @@ def testplus(str):
         if temp == '(' :
             str2.append(currentVal)
             currentVal = 0
-        elif temp == '+' :
+        elif r2.match(temp) :
             str1.append(temp)
             currentOpt = temp
         elif r1.match(temp):
-            if currentOpt == '=' :
-#                 currentVal = currentVal + int(temp)
-                print 'result is ',currentVal 
-            else :
-                currentVal = currentVal + int(temp)
+            currentVal = currentVal + int(temp)
         elif temp == ')' :
             currentVal = str2.pop() + currentVal
+            str1.pop()
             print 'result is %d',currentVal 
             
     print str1
