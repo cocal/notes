@@ -24,7 +24,7 @@ def div(a=0,b=1):
         return a/float(b)
 
 opterator = {'+':plus,'-':sub,'*':mul,'/': div}
-initOptval = {'+':0,'-':0,'*':1,'/':1}
+initOptval = {'+':0,'-':0,'*':1,'/':0}
 def optMath(val1,val2,opt):
     return opterator.get(opt)(val1,val2)
     
@@ -47,7 +47,10 @@ def testplus(str):
             currentOpt = temp
             currentVal = initOptval.get(temp)
         elif r1.match(temp):
-            currentVal = optMath(currentVal,int(temp),currentOpt)
+            if currentVal == 0:
+                currentVal = int(temp)
+            else:
+                currentVal = optMath(currentVal,int(temp),currentOpt)
 #             currentVal = currentVal + int(temp)
         elif temp == ')' :
             str1.pop()
@@ -63,7 +66,7 @@ def testplus(str):
 
 
 if __name__ == '__main__':
-    testplus('(/ 4 2)')
-#     testplus('( + 1 9 8 (* 1 2 3) ( / 2 3 ))')
+#     testplus('(+ 1 2)')
+    testplus('( + 1 9 8 (* 1 2 3) ( / 2 4 ))')
 #     print 4/float(8)
     print 'done'
