@@ -35,19 +35,19 @@ def testplus(str):
     str1 = []; #操作符队列
     str2 = []; #数值队列
     currentOpt = '='
-    currentVal = 0
+    currentVal = None
     for x in range(len(str)):
         temp = str[x]
         if temp == '(' :
 #             print  currentVal
             str2.append(currentVal)
-            currentVal = 0
+#             currentVal = 0
         elif r2.match(temp) :
             str1.append(temp)
             currentOpt = temp
-            currentVal = initOptval.get(temp)
+#             currentVal = initOptval.get(temp)
         elif r1.match(temp):
-            if currentVal == 0:
+            if currentVal == None:
                 currentVal = int(temp)
             else:
                 currentVal = optMath(currentVal,int(temp),currentOpt)
@@ -67,7 +67,7 @@ def testplus(str):
 
 
 if __name__ == '__main__':
-    testplus('(* 0 3)')
+    testplus('(/ 1 3)')
 #     testplus('( + 1 9 8 (* 1 2 3) ( / 2 4 (+ 1 3))')
 #     print 4/float(8)
     print 'done'
