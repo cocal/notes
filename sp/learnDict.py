@@ -39,7 +39,13 @@ dict4 = {1: getM()} #字典中直接调用方法....害我纠结了半天
 print dict4.get(1).i
 
 
+##其余的方法就很简单了
+dict5 = dict(val1= '1', val2 = '2', val3 = '3')
+print dict5
 
+for x in dict5.keys():
+    print 'key :', x
+    print 'val :',dict5.get(x)
 
 
 
