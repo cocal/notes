@@ -17,16 +17,26 @@ dict2.get(1)
 
 def saidStr(tosb,str):
     print 'said to', tosb , ':' , str
-dict3 = {'said':saidStr} #字典使用带参数的函数 - -....
+dict3 = {'said':saidStr} #字典使用带参数的函数 - -.... 目测应存的是函数指针
 
 dict3.get('said')('sb','you are')
 
 
 
+class M:
+    i = 1
+    def __init__(self):
+        self.i = 2
+        print 'new M'
+    
+def getM():
+    m = M();
+    return m;
 
 
+dict4 = {1: getM()} #字典中直接调用方法....害我纠结了半天
 
-
+print dict4.get(1).i
 
 
 
