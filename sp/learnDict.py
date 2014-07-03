@@ -13,7 +13,7 @@ def saidHi():
     print 'hi'
 
 dict2 = {1:saidHi} #字典里存放函数 
-dict2.get(1)
+dict2.get(1)()
 
 def saidStr(tosb,str):
     print 'said to', tosb , ':' , str
