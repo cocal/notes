@@ -21,7 +21,28 @@ class Magic():
     def __str__(self):
         return '这是一个描述类的方法 : val2 的值为 ： ' + self.val2  
     
+    
+    
+ #迭代器 
+ #理解了迭代器对程序运行有一定帮助 网上看到的一个迭代器例子
+class Reverse:
+    """Iterator for looping over a sequence backwards."""
+    def __init__(self, data):
+        self.data = data
+        self.index = len(data)
+    def __iter__(self):
+        return self
+    def next(self):
+        if self.index == 0:
+            raise StopIteration #抛出这个异常后 for循环会停止
+        self.index = self.index - 1 #擦坑爹呢 这个居然是倒序输出
+        return self.data[self.index]
+        
+    
 if __name__ == '__main__' :      
     m = Magic()
     print m.val
     print m  # #打印出类的描述
+    r = Reverse('12334567')
+    for x in r:
+        print x
