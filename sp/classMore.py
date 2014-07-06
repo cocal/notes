@@ -37,6 +37,10 @@ class Reverse:
             raise StopIteration #抛出这个异常后 for循环会停止
         self.index = self.index - 1 #擦坑爹呢 这个居然是倒序输出
         return self.data[self.index]
+
+
+#生成器 
+#原谅我脑壳有个包 还是不太透彻的理解生生成器 下面就依葫芦画瓢试试
         
     
 if __name__ == '__main__' :      
