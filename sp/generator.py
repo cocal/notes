@@ -35,7 +35,8 @@ def fibCommon(max):
         c = c + 1
 print 'common ------'
 fibCommon(5)
-
+print
+ 
 #这样问题就出来了 我们调用这个函数就直接打印出来了
 #如果要直接获得这个数列怎么办， 有办法的
 def fibCommon2(max):
@@ -44,5 +45,6 @@ def fibCommon2(max):
     while c < max:
         l.append(a)
         a, b = b, a + b
-
+        c = c + 1
+    return l
 print fibCommon2(5)
