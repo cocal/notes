@@ -117,3 +117,4 @@ for x in fibGen2(10):
     print x,
     
 ##.....今天程序死循环居然把电脑跑挂了..看来python开销略大啊  查查资料看看
+## 有个函数可以判断是否是生成器 isgeneratorfunction ...python 太扯了 = =
