@@ -116,4 +116,4 @@ print '-----generator2'
 for x in fibGen2(10):
     print x,
     
-##.....
+##.....今天程序死循环居然把电脑跑挂了..看来python开销略大啊  查查资料看看
