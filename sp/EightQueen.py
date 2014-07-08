@@ -26,12 +26,32 @@ Created on 2014年7月7日
 #
  
 from itertools import permutations
-n = 8
+n = 4
 valList = range(n)
 for vec in permutations(valList):#将valList生成排列
     if (n == len(set(vec[i] + i for i in valList))
-          == len(set(vec[i] - i for i in valList))):
+          == len(set(vec[i] - i for i in valList))): ##终于想明白了...
         print vec
 
-#明天继续吧 - -....            
-    
+#明天继续吧 - -....     
+
+print '----yield'
+#参考《Python基础教程》  先这样吧       
+def conflict(state, nextX):
+    nextY = len(state)
+    for i in range(nextY):
+        if abs(state[i]-nextX) in (0, nextY-i):
+            return True
+    return False
+     
+def queens(num=8, state=()):
+    for pos in range(num):
+        if not conflict(state, pos):
+            if len(state) == num-1:
+                yield (pos,)
+            else:
+                for result in queens(num, state + (pos,)):
+                    yield (pos,)+result
+                    
+for line in list(queens(4)):
+    print line
