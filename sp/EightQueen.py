@@ -53,5 +53,46 @@ def queens(num=8, state=()):
                 for result in queens(num, state + (pos,)):
                     yield (pos,)+result
                     
-for line in list(queens(4)):
+for line in list(queens(8)):
     print line
+
+##自己实现的八皇后丑死了..
+def isDagonal(dots,nextX):
+    l = len(dots)
+    i = -1
+    for x  in dots:
+        i = i + 1
+        if x + l - i == nextX or x - l + i == nextX or x == nextX:
+#            print 'No vil -- ' ,dots,'nextX : ',nextX
+            return True
+        else:
+            continue
+#    print 'Done --',dots,'nextX : ',nextX
+    return False
+
+#isDagonal([0,2], 4)
+
+def queen(n=4,qu=[]):
+#    print '-----递归--------'
+    if len(qu) == n:
+        return True
+    for pos in range(n):
+        if isDagonal(qu,pos):
+            continue
+        else:
+            qu.append(pos)
+            if queen(n,qu) :
+                print '-----------',qu
+#                yield qu
+                qu.pop()
+            else :
+               qu.pop()
+                
+#    print '------递归结束-----'
+    return False
+    
+queen(8)
+
+
+        
+    
