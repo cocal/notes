@@ -110,7 +110,8 @@ def test(i):
     k = 3
     yield i, k
     i = i + 1
-    for x in test(i):
+#    test(i) #生成器在递归的时候有趣的是 虽然会执行这段代码 但是返回的是一个迭代变量 所以并不会像 一般递归继续进入函数执行 ，必须要不断调用才会执行。
+    for x in test(i): 
         print x 
 #test(0)
 #for x in test(0):
