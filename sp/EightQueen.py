@@ -93,6 +93,29 @@ def queen(n=4,qu=[]):
     
 queen(8)
 
+def queen2(n=4,qu=[]):
 
+    for pos in range(n):
+        if isDagonal(qu,pos):
+            continue
+        else:
+            qu.append(pos)
+            if len(qu) == n:
+                yield qu
+            for x in queen2(n,qu):
+                yield qu
+            qu.pop()
+
+def test(i):
+    k = 3
+    yield i, k
+    i = i + 1
+    for x in test(i):
+        print x 
+#test(0)
+#for x in test(0):
+#    print x
+for x in queen2(8):
+    print  x   
         
     
