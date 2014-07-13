@@ -30,13 +30,44 @@ def rank(l):
 #    print x
     
 def rank2(l):
+    res = []
     if(len(l)<=1):
-        return (l[0],)
-    res = ()
+        res.append((l[0],)) 
+        print res
+        return res
+#     res = []
     for i in range(len(l)):
         s = l[:i] + l[i+1:]
+        print 's',s
+#         temp = ()
         for x in rank2(s):
-            res = (l[i],) + x
+            print 'x',x
+            temp = (l[i],) + x
+            print 'temp',temp
+            res.append(temp)     
     return res
 
-print rank2(l=['1','2','3'])
+print 'res',rank2(l=['1','2','3'])
+
+def test():
+    return (1,)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
