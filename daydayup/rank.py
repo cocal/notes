@@ -50,7 +50,14 @@ def rank2(l):
 print 'res',rank2(l=['1','2','3'])
 
 def test():
-    return (1,)
+    return (1,) ##这个坑复习了 tuple类型 变量 没有append 也不能修改? 
+
+def test2():
+    var = (1,2)
+    var = var + (3,) ##
+    print var
+
+test2()
 
 
 
