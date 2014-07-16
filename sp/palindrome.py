@@ -38,16 +38,20 @@ def LongestPalindrome(str):
     for i in range(l) :
         k = 0
         while (i-k > 0) and (i + k < l) : #只考虑奇数情况
-            if str [i-k] != str[i+k] : 
+            if str [i-k] != str[i+k] :
+#                 print i,str[i-k],str[i+k] 
+                k = k -1
                 break
             else :
                 k = k + 1
+
         if max < k * 2 + 1:
             max = k * 2 + 1
-            print str[i-k:i+k]
+            print i
+            print str[i-k:i+k+1]
     print max
 
-LongestPalindrome('dabcabcbad')
+LongestPalindrome('sdscabdbaccc')
         
     
     
