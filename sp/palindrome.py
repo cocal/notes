@@ -39,7 +39,7 @@ def LongestPalindrome(str):
         while (i-k > 0) and (i + k < l) : #只考虑奇数情况
             if str [i-k] != str[i+k] :
 #                 print i,str[i-k],str[i+k] 
-                k = k - 1
+                k = k -1
                 break
             else :
                 k = k + 1
@@ -48,8 +48,7 @@ def LongestPalindrome(str):
             max = k * 2 + 1
             print i
             print str[i-k:i+k+1]
-            
-        j = 0
+            j = 0
         while (i - j > 0) and (i + k < l) :
             if str [i-j] != str [i+j-1] :
                 j = j - 1
@@ -59,7 +58,7 @@ def LongestPalindrome(str):
         if max < j *2 :
             max = j * 2
             print i
-            print str[i-j:i+j+1]
+            print str[i-j:i+j+1] #有冲突提交不到  - -正好研究怎么解决冲突
     print max
 
-LongestPalindrome('sdscabbaccc')
+LongestPalindrome('sdscabdbaccc')
