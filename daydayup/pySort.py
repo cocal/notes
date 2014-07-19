@@ -39,8 +39,48 @@ def recursion(i):
 
 ##不过每次写程序使用到递归 需要考虑到最大递归次数是个好习惯
 
-import sys
-sys.setrecursionlimit(1100)
-recursion(1)
-#到1001次时就听推出循环了
+# import sys
+# sys.setrecursionlimit(1100)
+# recursion(1)
+#到1001次时就退出循环了
 
+
+
+##python之快排：
+
+
+# li = [1,1,5,6,7,3,2,1,9,0]
+
+li = [1,3,4,2,7,6,5]
+def partSort(li, startNode, endNode):
+    lenth = len(li)
+#     if lenth <= 1 :
+#         return 1;
+    i = startNode - 1;
+    flag = li[endNode]
+    for j in range(startNode,endNode) :
+        if li[j] > flag:
+            continue
+        else :
+            i += 1
+            if i != j :
+                li[i] , li[j] = li[j] , li[i]
+    li[i+1],li[endNode] = li[endNode] , li[i+1]
+    return i + 1
+   
+def quSort(li,startNode,endNode):
+    if startNode > endNode :
+        return
+    mid = partSort(li, startNode, endNode)  
+    
+    quSort(li, startNode, mid - 1)
+    print li  
+    quSort(li, mid + 1, endNode)
+    
+    
+print li
+partSort(li, 0, len(li) -1)
+print li
+
+quSort(li, 0, len(li) -1)
+print li
