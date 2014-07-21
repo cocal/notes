@@ -7,14 +7,14 @@ li = [1,1,5,6,7,3,2,1,9,0]
 def bubSort(li):
     lenth = len(li)
     for x in range(lenth-1,-1,-1) :
-        print  x
+#         print  x
         for i in range(x) :
             if li[i] < li[i+1] :
 #                 print li[i],li[i+1]
                 li[i] , li[i+1] = li[i+1] , li[i]
-print li
-bubSort(li)
-print li
+# print li
+# bubSort(li)
+# print li
 
 #python 在默认情况下居然有最大递归深度1000限制？ 
 max_rec = 1000
@@ -74,13 +74,13 @@ def quSort(li,startNode,endNode):
     mid = partSort(li, startNode, endNode)  
     
     quSort(li, startNode, mid - 1)
-    print li  
+#     print li  
     quSort(li, mid + 1, endNode)
     
-    
-print li
-partSort(li, 0, len(li) -1)
-print li
+if __name__ == '__main__' :    
+    print li
+    partSort(li, 0, len(li) -1)
+    print li
 
-quSort(li, 0, len(li) -1)
-print li
+    quSort(li, 0, len(li) -1)
+    print li
