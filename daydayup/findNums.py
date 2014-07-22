@@ -31,4 +31,54 @@ def swapSelect(li,k=1):
     print temp
     print li
 swapSelect(li, 5)
-    
+
+
+
+#select算法 类似快速排序 将数列按照某个元素分堆 知道最小堆为k为止
+
+
+li = [1,5,6,3,2,7,8,9,0,4]
+
+
+def partSelect(li,right,left):
+    lenth = len(li) - 1
+    pivot = li[lenth]
+    i = right - 1
+    for j in range(right,left) :
+        if li[j] < pivot :
+            i += 1
+            li[i] , li[j] = li[j],li[i]
+
+    li[i+1],li[lenth] = pivot,li[i+1]
+    return i+1
+# partSelect(li, 0, len(li)- 1)
+# print '--',li
+
+def quickSelect(li,right,left,k):
+    print 'q'
+    if right >= left :
+        return 0
+    flag = partSelect(li, right, left)
+    if flag - right + 1 > k :
+        flag = quickSelect(li, right, flag, k)
+    elif flag - right  + 1< k :
+        flag = quickSelect(li, flag + 1, left, k-flag)
+    print li[:flag+1]   
+    return  flag
+print 'quickSelect:',li
+quickSelect(li, 0,len(li)- 1 ,3)
+print 'quickSelect:',li
+
+
+
+
+
+
+
+
+
+
+
+
+
+
