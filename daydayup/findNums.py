@@ -37,36 +37,43 @@ swapSelect(li, 5)
 #select算法 类似快速排序 将数列按照某个元素分堆 知道最小堆为k为止
 
 
-li = [1,5,6,3,2,7,8,9,0,4]
+# li = [1,5,6,3,2,7,8,9,0,4]
 
 
 def partSelect(li,right,left):
-    lenth = len(li) - 1
-    pivot = li[lenth]
+#     lenth = len(li) - 1
+    pivot = li[left]
     i = right - 1
     for j in range(right,left) :
         if li[j] < pivot :
             i += 1
             li[i] , li[j] = li[j],li[i]
 
-    li[i+1],li[lenth] = pivot,li[i+1]
+    li[i+1],li[left] = pivot,li[i+1]
     return i+1
 # partSelect(li, 0, len(li)- 1)
 # print '--',li
 
 def quickSelect(li,right,left,k):
     print 'q'
+    print li
     if right >= left :
-        return 0
+        return right
     flag = partSelect(li, right, left)
-    if flag - right + 1 > k :
-        flag = quickSelect(li, right, flag, k)
-    elif flag - right  + 1< k :
-        flag = quickSelect(li, flag + 1, left, k-flag)
+#     if flag == k + 1 :
+#         return flag - 1
+    print flag
+
+    if flag - right > k - 1 :
+        flag = quickSelect(li, right, flag - 1, k)
+    elif flag - right < k - 1 :
+        flag = quickSelect(li, flag + 1, left, k - 1)
     print li[:flag+1]   
     return  flag
+li = [1,2,3,4,5,6,7,8,9]
+li = [1,2,3,4,5,6,7,8,9,0,11,13,17,31,42,16,15]
 print 'quickSelect:',li
-quickSelect(li, 0,len(li)- 1 ,3)
+quickSelect(li, 0,len(li)- 1 ,8)
 print 'quickSelect:',li
 
 
