@@ -72,6 +72,8 @@ def quickSelect(li,right,left,k):
     return  flag
 li = [1,2,3,4,5,6,7,8,9]
 li = [1,2,3,4,5,6,7,8,9,0,11,13,17,31,42,16,15]
+
+li = [1,11,2,12,3,13,4,14,5,15,6,16,7,17]
 print 'quickSelect:',li
 quickSelect(li, 0,len(li)- 1 ,8)
 print 'quickSelect:',li
