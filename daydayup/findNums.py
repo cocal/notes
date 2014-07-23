@@ -76,11 +76,38 @@ print 'quickSelect:',li
 quickSelect(li, 0,len(li)- 1 ,8)
 print 'quickSelect:',li
 
+# li = [1,2,3,4,5,6,7,8,9,0,11,13,17,31,42,16,15]
+
+def quickSort(li,start,end):
+    flag = li[end]
+    i = start - 1
+    for x in range(start,end) :
+        if li[x] < flag :
+           i += 1
+           li[i],li[x] = li[x],li[i]
+    li[i+1] , li[end] = li[end] ,li[i+1] 
+    return i+1
+# print quickSort(li, 0, len(li) - 1)
+# print li
 
 
-
-
-
+def quickSelect2(li,start,end,k):
+    if start >= end :
+        return start
+    flag = quickSort(li, start, end)
+    num = flag - start + 1
+#     if num == k :
+#         return flag
+    if num > k : 
+        flag = quickSelect2(li, start, flag-1, k)
+    elif num < k : 
+        flag = quickSelect2(li, flag + 1, end, k - num)
+    
+    return flag
+li = [1,2,3,4,5,6,0]
+print '------'
+res = quickSelect2(li,0,len(li)-1, 6)
+print res,li[:res+1]
 
 
 
