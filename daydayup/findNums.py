@@ -54,7 +54,7 @@ def partSelect(li,right,left):
 # partSelect(li, 0, len(li)- 1)
 # print '--',li
 
-def quickSelect(li,right,left,k):
+def quickSelect(li,right,left,k): #此方法有bug
     print 'q',li,li[right:left+1],'r=',right,'l=',left,k
     if right >= left :
         return right
@@ -105,10 +105,10 @@ def quickSelect2(li,start,end,k):
         flag = quickSelect2(li, flag + 1, end, k - num)
     
     return flag
-li = [1,2,3,4,5,6,0]
+li = [1,11,2,12,3,13,4,14,5,15,6,16,7,17]
 print '------'
-res = quickSelect2(li,0,len(li)-1, 6)
-print res,li[:res+1]
+res = quickSelect2(li,0,len(li)-1, 8)
+print res,li[:res+1],li
 
 
 
