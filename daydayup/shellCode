@@ -1,0 +1,7 @@
+name=daily.log.2013-07-;for x in {1..31}; do if [ $x -lt 10 ] ; then x=0$x ; fi; temp=$name$x.gz; echo $temp; 
+zgrep '登录失败' $temp | grep  'LoginManager' | wc -l; 
+zgrep '登录成功' $temp | grep  'LoginManager' | wc -l; 
+zgrep '登录失败' $temp | grep  '0007' | grep 'LoginManager'| wc -l;
+zgrep 'Could not send Message' $temp | wc -l;  
+zgrep '登录失败' $temp | grep 'LoginManager' | grep 'SSO01008' |wc -l ; 
+zgrep SSO01001 $temp | grep  'ERROR'  |wc -l ;done
