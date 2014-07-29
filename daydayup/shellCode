@@ -8,6 +8,36 @@ zgrep SSO01001 $temp | grep  'ERROR'  |wc -l ;done
 
 ##昨天提交的这么少 实在过意不去
 
-##话说 shell 中有几个很有用的特殊符号 虽然在用但是 
+##话说 shell 中有几个很有用的特殊符号 虽然在用但是 一直没仔细学习
+
+##首先是  "|" 
+
+##靠 用某度真心搜个东西真心是......
+
+commandA | commandB
+
+#意思是把命令A的输出结果 作为命令B的输入 条件执行。（值得注意的是输出结果指standard output）
+#于是常用的就如我上面 
+grep A filename | grep B
+
+
+##其次是  "<" 和 ">"
+
+commandA < filename
+
+#把filename文件的内容输入到 命令A
+
+commandA > filename
+
+#把filename文件的内容输入到 命令A
+#....
+
+#强大的grep命令
+
+grep  'condition'  filename
+
+#部分常用的参数
+-c (注意是小c) 则是统计行数
+-n 显示行号
 
 
