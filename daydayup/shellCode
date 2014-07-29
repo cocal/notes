@@ -4,4 +4,10 @@ zgrep '登录成功' $temp | grep  'LoginManager' | wc -l;
 zgrep '登录失败' $temp | grep  '0007' | grep 'LoginManager'| wc -l;
 zgrep 'Could not send Message' $temp | wc -l;  
 zgrep '登录失败' $temp | grep 'LoginManager' | grep 'SSO01008' |wc -l ; 
-zgrep SSO01001 $temp | grep  'ERROR'  |wc -l ;done
+zgrep SSO01001 $temp | grep  'ERROR'  |wc -l ;done 
+
+##昨天提交的这么少 实在过意不去
+
+##话说 shell 中有几个很有用的特殊符号 虽然在用但是 
+
+
