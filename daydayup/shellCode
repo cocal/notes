@@ -40,4 +40,13 @@ grep  'condition'  filename
 -c (注意是小c) 则是统计行数
 -n 显示行号
 
+#grep 连续查询两个条件 （必须两个同时满足)
+grep -E '(condA.*condB)' filename (这样条件A和条件B有先后顺序)
+
+grep -E '(condA.*condB|condB.*condA)' filename (没有先后顺序)
+
+# 笨办法是 
+
+grep condA filename | grep condB
+
 
