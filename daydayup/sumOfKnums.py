@@ -16,8 +16,40 @@ def sumOfKnums(sum,n):
     lires.pop()
     sumOfKnums(sum, n - 1)
     
-sumOfKnums(10, 6)
+sumOfKnums(10, 1)
 
+
+
+##寻找最大的几个数之和
+
+li = [1,2,-3,4,-1,5,-7,10,1]
+
+def maxSumsOfnums(li):
+    lenth = len(li)
+    maxSum = 0
+    currSum = 0
+    for i in range(lenth) :
+        for j in range(i,lenth) :
+            for k in range(i,j) :
+                print k,
+                currSum += li[k]
+            print
+            if maxSum < currSum :
+                 maxSum = currSum
+            currSum = 0
+        
+    return maxSum
+
+print maxSumsOfnums(li)
+print 
+    
+    
+    
+    
+    
+    
+    
+    
 
     
     
