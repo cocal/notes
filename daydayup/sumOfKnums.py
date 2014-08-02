@@ -25,15 +25,15 @@ sumOfKnums(10, 1)
 li = [1,2,-3,4,-1,5,-7,10,1]
 
 def maxSumsOfnums(li):
-    lenth = len(li)
+    lenth = len(li)+1
     maxSum = 0
     currSum = 0
     for i in range(lenth) :
         for j in range(i,lenth) :
             for k in range(i,j) :
-#                 print k,
+                print li[k],
                 currSum += li[k]
-#             print
+            print
             if maxSum < currSum :
                  maxSum = currSum
             currSum = 0
