@@ -31,9 +31,9 @@ def maxSumsOfnums(li):
     for i in range(lenth) :
         for j in range(i,lenth) :
             for k in range(i,j) :
-                print k,
+#                 print k,
                 currSum += li[k]
-            print
+#             print
             if maxSum < currSum :
                  maxSum = currSum
             currSum = 0
@@ -44,7 +44,23 @@ print maxSumsOfnums(li)
 print 
     
     
-    
+##方法二 
+li = [1,2,-3,4,-1,5,-7,10,1]
+def MaxSub(li):
+    currSum = 0
+    maxSum = 0
+    for x in li :
+        if x > x + currSum :
+            currSum = x
+        else :
+            currSum = currSum + x 
+        if maxSum < currSum :
+            print maxSum
+            maxSum = currSum
+    return maxSum
+
+print MaxSub(li)
+        
     
     
     
