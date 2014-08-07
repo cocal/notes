@@ -22,7 +22,7 @@ class binarryTree():
                 r = r.left
             elif r.left != None and r.right == None :
                 r = r.right
-            elif r.left.left == None:
+            elif r.left.left == None or r.left.right == None:
                 r = r.left
             else :
                 r = r.right
