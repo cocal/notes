@@ -44,4 +44,34 @@ b = binarryTree()
 
 for i in [1,2,3,4,5,7,8,6,4] :
     b.insertNode(i)   
-showTheTree(b.root)     
+# showTheTree(b.root)     
+
+
+### 二叉查找树
+
+class BinaryTree(object):
+    def __init__(self,val):
+        self.val = val
+        self.left = None
+        self.right = None
+    def instert(self,val):
+        if val < self.val :
+            if self.left != None :
+                self.left.instert(val)
+            else :
+                node = BinaryTree(val)
+                self.left = node
+        else :
+            if self.right != None :
+                self.right.instert(val)
+            else :
+                node = BinaryTree(val)
+                self.right = node
+
+
+bTree = BinaryTree(6)
+
+for i in range(10) :
+    bTree.instert(i)
+
+showTheTree(bTree,0)
