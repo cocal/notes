@@ -67,7 +67,17 @@ class BinaryTree(object):
             else :
                 node = BinaryTree(val)
                 self.right = node
-
+    def findNode(self,val):
+        if self.val == val :
+            return val
+        if self.val > val : 
+            return self.right.findNode(val)
+        else :
+            return self.left.findNode(val)
+        
+#     def delNode(self,val):
+#         if self.val == val :
+            
 
 bTree = BinaryTree(6)
 
