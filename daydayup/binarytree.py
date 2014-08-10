@@ -78,7 +78,7 @@ class BinaryTree(object):
     def delNode(self,val):
         currNode = self 
         parent = self
-        while val < currNode.val :
+        while val != currNode.val :
             parent = currNode 
             if currNode < val :
                 currNode = currNode.left
@@ -86,20 +86,20 @@ class BinaryTree(object):
                 currNode = currNode.right
         
         if currNode.left == None and currNode.right == None :
-            if parent.left.val == currNode.val :
-                parent.left == None
+            if parent.left != None and parent.left.val == currNode.val :
+                parent.left = None
             else :
-                parent.right == None
+                parent.right = None
         elif currNode.left != None and currNode.right == None :
-            if parent.left.val == currNode.val :
-                parent.left == currNode.left
+            if parent.left != None and parent.left.val == currNode.val :
+                parent.left = currNode.left
             else :
-                parent.right == currNode.left
+                parent.right = currNode.left
         elif currNode.left == None and currNode.right != None :
-            if parent.left.val == currNode.val :
-                parent.left == currNode.right
+            if parent.left != None and parent.left.val == currNode.val :
+                parent.left = currNode.right
             else :
-                parent.right == currNode.right
+                parent.right = currNode.right
         else :
             temp = currNode.right
             temp = self._getMinNodeForDel(temp)
@@ -118,9 +118,10 @@ class BinaryTree(object):
 
 bTree = BinaryTree(6)
 
-for i in range(10) :
+for i in 1,2,3,4,5,7,8,9,10 :
     bTree.instert(i)
+bTree.instert(8)
 showTheTree(bTree,0)
-bTree.delNode(7)
+bTree.delNode(6)
 print '---'
 showTheTree(bTree,0)
