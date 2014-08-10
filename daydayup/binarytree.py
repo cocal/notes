@@ -75,13 +75,52 @@ class BinaryTree(object):
         else :
             return self.left.findNode(val)
         
-#     def delNode(self,val):
-#         if self.val == val :
+    def delNode(self,val):
+        currNode = self 
+        parent = self
+        while val < currNode.val :
+            parent = currNode 
+            if currNode < val :
+                currNode = currNode.left
+            else :
+                currNode = currNode.right
+        
+        if currNode.left == None and currNode.right == None :
+            if parent.left.val == currNode.val :
+                parent.left == None
+            else :
+                parent.right == None
+        elif currNode.left != None and currNode.right == None :
+            if parent.left.val == currNode.val :
+                parent.left == currNode.left
+            else :
+                parent.right == currNode.left
+        elif currNode.left == None and currNode.right != None :
+            if parent.left.val == currNode.val :
+                parent.left == currNode.right
+            else :
+                parent.right == currNode.right
+        else :
+            temp = currNode.right
+            temp = self._getMinNodeForDel(temp)
+            currNode.val = temp.val   
+    def _getMinNodeForDel(self,node):
+        parentNode = node
+        currNode = node
+        while currNode.left != None :
+            parentNode = self
+            currNode = currNode.left
+#         if currNode.right != None :
+        parentNode.left = currNode.right
+        currNode.right = None
+        return currNode 
             
 
 bTree = BinaryTree(6)
 
 for i in range(10) :
     bTree.instert(i)
-
+showTheTree(bTree,0)
+bTree.delNode(7)
+print '---'
 showTheTree(bTree,0)
