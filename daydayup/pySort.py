@@ -16,6 +16,20 @@ def bubSort(li):
 # bubSort(li)
 # print li
 
+def insertion_sort(lst):
+    if len(lst) == 1:
+        return
+ 
+    for i in xrange(1, len(lst)):
+        temp = lst[i]
+        j = i - 1
+        while j >= 0 and temp > lst[j]:
+            lst[j + 1] = lst[j]
+            j -= 1
+        lst[j + 1] = temp
+
+
+
 #python 在默认情况下居然有最大递归深度1000限制？ 
 max_rec = 1000
 def recursion(i):
